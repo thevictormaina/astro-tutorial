@@ -1,7 +1,6 @@
 ---
 import Header from "./components/header.astro"
-
-export const prerender = true;
+import "../styles/global.scss"
 ---
 
 <html lang="en">
@@ -10,10 +9,10 @@ export const prerender = true;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>The Victor Maina Blog</title>
 	</head>
 	<body>
 		<Header />
-		<h1>My Astro Site</h1>
+		<h1>Hey, I'm Victor Maina! Welcome to my blog.</h1>
 	</body>
 </html>
