@@ -1,29 +1,29 @@
 ---
 environments:
-  node:
-    version: "16.2"
+    node:
+        version: "16.2"
+deployment:
+    tasks:
+        # - name: Setup Environment
+        #   command: source /home/victorma/nodevenv/astro_test/16/bin/activate
 
-tasks:
-  # - name: Setup Environment
-  #   command: source /home/victorma/nodevenv/astro_test/16/bin/activate
+        - name: Set project root
+          command: PROJECT_ROOT=/home/victorma/astro_test/
 
-  - name: Set project root
-    command: PROJECT_ROOT=/home/victorma/astro_test/
+        - name: Install Dependencies
+          command: npm install
+          root: $PROJECT_ROOT
+          stdout_file: stdout.log
+          stderr_file: stderr.log
 
-  - name: Install Dependencies
-    command: npm install
-    root:  $PROJECT_ROOT
-    stdout_file: stdout.log
-    stderr_file: stderr.log
+        - name: Build Project
+          command: npm run build
+          root: $PROJECT_ROOT
+          stdout_file: stdout.log
+          stderr_file: stderr.log
 
-  - name: Build Project
-    command: npm run build
-    root:  $PROJECT_ROOT
-    stdout_file: stdout.log
-    stderr_file: stderr.log
-
-  - name: Deploy to Server
-    command: cp -R ./dist/* /home/victorma/astro_public
-    root: $PROJECT_ROOT
-    stdout_file: stdout.log
-    stderr_file: stderr.log
+        - name: Deploy to Server
+          command: cp -R ./dist/* /home/victorma/astro_public
+          root: $PROJECT_ROOT
+          stdout_file: stdout.log
+          stderr_file: stderr.log
