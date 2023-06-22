@@ -1,38 +1,26 @@
-# ---
-# # environments:
-# #     node:
-# #         version: "16"
-# deployment:
-#     tasks:
-#         # - name: Setup Environment
-#         #   command: source /home/victorma/nodevenv/astro_test/16/bin/activate
-
-#         # - name: Set project root
-#         #   command: export PROJECT_ROOT=/home/victorma/astro_test/
-#         - export PROJECT_ROOT=/home/victorma/astro_test/
-
-#         - name: Install Dependencies
-#           command: npm install
-#           root: $PROJECT_ROOT
-#           stdout_file: stdout.log
-#           stderr_file: stderr.log
-
-#         - pwd
-
-#         # - name: Build Project
-#         #   command: npm run build
-#         #   root: $PROJECT_ROOT
-#         #   stdout_file: stdout.log
-#         #   stderr_file: stderr.log
-
-#         # - name: Deploy to Server
-#         #   command: /bin/cp -R ./dist/* /home/victorma/astro_public
-#         #   root: $PROJECT_ROOT
-#         #   stdout_file: stdout.log
-#         #   stderr_file: stderr.log
-
 ---
 deployment:
-  tasks:
-    - export DEPLOYPATH=/home/example/public_html/
-    - echo $DEPLOYPATH
+    tasks:
+        # - name: Setup Environment
+        #   command: source /home/victorma/nodevenv/astro_test/16/bin/activate
+
+        - name: Set project root
+          command: export PROJECT_ROOT=/home/victorma/astro_test/
+
+        - name: Install Dependencies
+          command: npm install
+          root: $PROJECT_ROOT
+          stdout_file: stdout.log
+          stderr_file: stderr.log
+
+        - name: Build Project
+          command: npm run build
+          root: $PROJECT_ROOT
+          stdout_file: stdout.log
+          stderr_file: stderr.log
+
+        - name: Deploy to Server
+          command: /bin/cp -R ./dist/* /home/victorma/astro_public
+          root: $PROJECT_ROOT
+          stdout_file: stdout.log
+          stderr_file: stderr.log
