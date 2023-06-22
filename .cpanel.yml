@@ -1,14 +1,14 @@
 ---
 environments:
     node:
-        version: "16.2"
+        version: "16"
 deployment:
     tasks:
         # - name: Setup Environment
         #   command: source /home/victorma/nodevenv/astro_test/16/bin/activate
 
         - name: Set project root
-          command: PROJECT_ROOT=/home/victorma/astro_test/
+          command: export PROJECT_ROOT=/home/victorma/astro_test/
 
         - name: Install Dependencies
           command: npm install
@@ -23,7 +23,7 @@ deployment:
           stderr_file: stderr.log
 
         - name: Deploy to Server
-          command: cp -R ./dist/* /home/victorma/astro_public
+          command: /bin/cp -R ./dist/* /home/victorma/astro_public
           root: $PROJECT_ROOT
           stdout_file: stdout.log
           stderr_file: stderr.log
