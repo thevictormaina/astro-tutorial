@@ -1,5 +1,6 @@
 ---
-import Header from "./components/header.astro"
+import Navigation from "../components/Navigation.astro"
+import Footer from '../components/Footer.astro';
 import "../styles/global.scss"
 ---
 <html lang = "en">
@@ -9,7 +10,7 @@ import "../styles/global.scss"
     <title>Astro</title>
   </head>
   <body>
-	<Header />
+	<Navigation />
 
     <h1>My Astro Learning Blog</h1>
     <p>This is where I will post about my journey learning Astro.</p>
@@ -18,5 +19,6 @@ import "../styles/global.scss"
       <li><a href="/posts/post-2/">Post 2</a></li>
       <li><a href="/posts/post-3/">Post 3</a></li>
     </ul>
+    <Footer />
   </body>
 </html>

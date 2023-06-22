@@ -1,0 +1,44 @@
+---
+import Social from "./Social.astro"
+import type { Platform } from "./Social.astro"
+
+const platforms: Platform[] = [
+  {
+    platform: "Instagram",
+    link: `https://www.instagram.com/thevictormaina`,
+  },
+  {
+    platform: "Facebook",
+    link: `https://www.facebook.com/thevictormaina`,
+  },
+  {
+    platform: "LinkedIn",
+    link: `https://www.linkedin.com/in/thevictormaina/`,
+  },
+  {
+    platform: "TikTok",
+    link: `https://www.tiktok.com/@thevictormaina`,
+  },
+]
+---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  <p>
+    You can find me online!
+    <ul>
+      {
+        platforms.map((platform) => (
+          <Social link={platform.link} platform={platform.platform} />
+        ))
+      }
+    </ul>
+  </p>
+</footer>

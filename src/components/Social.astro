@@ -1,0 +1,15 @@
+---
+export type Platform = { link: string; platform: string }
+const { platform, link } = Astro.props as Platform
+---
+
+<a href={link}>{platform}</a>
+
+<style>
+    a {
+        padding: 0.5rem 1rem;
+        color: white;
+        background-color: #4c1d95;
+        text-decoration: none;
+    }
+</style>
